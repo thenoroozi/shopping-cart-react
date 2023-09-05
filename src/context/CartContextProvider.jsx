@@ -9,7 +9,7 @@ const initialState = {
 
 const sumItems = items => {
    const itemsCounter = items.reduce((total, product) => total + product.quantity, 0);
-   const total = items.reduce((total, product) => total + product.price * product.quantity,0).toFixed(2);
+   const total = items.reduce((total, product) => total + product.price * product.quantity, 0).toFixed(2);
    // return {itemsCounter: itemsCounter,total: total}
    return { itemsCounter, total };
 }
@@ -26,7 +26,8 @@ const cartReducer = (state, action) => {
          return {
             ...state,
             selectedItems: [...state.selectedItems],
-            ...sumItems(state.selectedItems)
+            ...sumItems(state.selectedItems),
+            checkout: false,
          }
       case "REMOVE_ITEM":
          const newSelecteditem = state.selectedItems.filter(item => item.id !== action.payload.id)
