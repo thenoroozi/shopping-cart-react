@@ -10,7 +10,6 @@ import ProductDetails from './components/ProductDetails';
 
 const App = () => {
 
-
    return (
       <ProductContextProvider>
          <CartContextProvider>
