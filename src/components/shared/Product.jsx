@@ -9,6 +9,7 @@ import { shorten, isInCart, quantityCount } from '../../helper/functions'
 import trashIcon from '../../assets/icons/trash.svg'
 //styles
 import styles from './Product.module.css'
+import { spread } from 'axios';
 const Product = ({ productData }) => {
 
    const { state, dispatch } = useContext(CartContext);
@@ -23,6 +24,7 @@ const Product = ({ productData }) => {
             <div className={styles.buttonContainer}>
                {quantityCount(state, productData.id) > 1 && <button className={styles.smallButton} onClick={() => dispatch({ type: "DECREASE", payload: productData })}>-</button>}
                {quantityCount(state, productData.id) === 1 && <button className={styles.smallButton} onClick={() => dispatch({ type: "REMOVE_ITEM", payload: productData })}><img src={trashIcon} /></button>}
+               {quantityCount(state, productData.id) > 0  && <span className={styles.counter}>{quantityCount(state, productData.id)}</span>}
                {
                   isInCart(state, productData.id) ?
                      <button className={styles.smallButton} onClick={() => dispatch({ type: "INCREASE", payload: productData })}>+</button> :
