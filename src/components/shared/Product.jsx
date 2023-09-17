@@ -9,7 +9,7 @@ import { shorten, isInCart, quantityCount } from '../../helper/functions'
 import trashIcon from '../../assets/icons/trash.svg'
 //styles
 import styles from './Product.module.css'
-import { spread } from 'axios';
+
 const Product = ({ productData }) => {
 
    const { state, dispatch } = useContext(CartContext);

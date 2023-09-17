@@ -1,5 +1,5 @@
 import React, { useCallback, useContext } from 'react';
-import { Link } from 'react-router-dom/cjs/react-router-dom.min';
+import { Link } from 'react-router-dom';
 //components
 import Cart from './shared/Cart';
 
